@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-hosts
+
+spec:
+  rules:
+  - host: star-burger.test
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: k8s-test-deployment-single
+              port:
+                number: 80
+  - host: www.star-burger.test
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: k8s-test-deployment-single
+              port:
+                number: 80
+

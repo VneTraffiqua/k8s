@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-test-deployment-autoscaling
+  name: k8s-test-deployment-single
   namespace: default
   labels:
     app: k8s-test
@@ -49,7 +49,7 @@ kind: Service
 metadata:
   labels:
     run: django-pod
-  name: django-pod
+  name: k8s-test-deployment-single
   namespace: default
   resourceVersion: "4032"
   uid: 950163f8-6a81-48d8-b1a4-030bba0bb1f5
@@ -73,3 +73,4 @@ spec:
   type: NodePort
 status:
   loadBalancer: {}
+  
