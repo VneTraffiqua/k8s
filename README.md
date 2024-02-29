@@ -80,3 +80,8 @@ $ docker compose build web
  kubectl create secret generic django-k8s-env --from-env-file=<path_to_env_file>
 ```
 
+Создайте запланированное задание CronJob:
+```commandline
+kubectapply -f django-clearsessions-once.yml
+```
+
