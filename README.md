@@ -82,6 +82,6 @@ $ docker compose build web
 
 Создайте запланированное задание CronJob:
 ```commandline
-kubectapply -f django-clearsessions-once.yml
+kubectl apply -f django-clearsessions-once.yml
 ```
 
