@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   schedule: "* * * * *"
-  startingDeadlineSeconds: 11
+  startingDeadlineSeconds: 300
   jobTemplate:
     spec:
       ttlSecondsAfterFinished: 5
