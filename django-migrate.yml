@@ -4,7 +4,7 @@ metadata:
   name: django-migrate
   namespace: default
 spec:
-  ttlSecondsAfterFinished: 5
+
   template:
     spec:
       containers:
