@@ -99,6 +99,12 @@ minikube image build -t django-app backend_main_django/
 kubectl apply -f deploy-manifest.yml
 ```
 
+Запустите сервис:
+
+```
+kubectl apply -f svc-manifest.yml
+```
+
 Заупстите миграции:
 ```
 kubectl apply -f django-migrate.yml
