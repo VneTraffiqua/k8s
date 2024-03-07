@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: django-pod
+  name: k8s-test-deployment-single
+  namespace: default
+  resourceVersion: "4032"
+  uid: 950163f8-6a81-48d8-b1a4-030bba0bb1f5
+spec:
+  clusterIP: 10.106.27.150
+  clusterIPs:
+  - 10.106.27.150
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31925
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: django-pod
+  sessionAffinity: None
+  type: NodePort
+  status:
+  loadBalancer: {}
