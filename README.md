@@ -70,7 +70,24 @@ Helm установит и запустит postgresql, а также созда
 
 ## Переменные окружения
 
-Создайте .env файл с переменными:
+Создайте манифест файл `secrets-manifest.yml` с секретами и запустите командой:
+
+```
+kubectl apply -f secrets-manifest.yml
+```
+
+Содержимое файла `secrets-manifest.yml`:
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: django-secret
+stringData:
+  ALLOWED_HOSTS: ['*']
+  DATABASE_URL: 'postgres://user_name:password@db_host:5432/db_name'
+  DEBUG: 'False'
+  SECRET_KEY: 'your-secret-key'
+```
 
 `SECRET_KEY` -- обязательная секретная настройка Django. Это соль для генерации хэшей. Значение может быть любым, важно лишь, чтобы оно никому не было известно. [Документация Django](https://docs.djangoproject.com/en/3.2/ref/settings/#secret-key).
 
@@ -79,6 +96,8 @@ Helm установит и запустит postgresql, а также созда
 `ALLOWED_HOSTS` -- настройка Django со списком разрешённых адресов. Если запрос прилетит на другой адрес, то сайт ответит ошибкой 400. Можно перечислить несколько адресов через запятую, например `127.0.0.1,192.168.0.1,site.test`. [Документация Django](https://docs.djangoproject.com/en/3.2/ref/settings/#allowed-hosts).
 
 `DATABASE_URL` -- адрес для подключения к базе данных PostgreSQL. Другие СУБД сайт не поддерживает. [Формат записи](https://github.com/jacobian/dj-database-url#url-schema).
+
+
 
 ## Настройка и запуск Django
 
