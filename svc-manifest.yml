@@ -6,9 +6,6 @@ metadata:
   name: k8s-test-deployment-single
   namespace: default
 spec:
-  clusterIP: 10.106.27.150
-  clusterIPs:
-  - 10.106.27.150
   ports:
   - nodePort: 31925
     port: 80
